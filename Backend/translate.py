@@ -1,7 +1,8 @@
 from transformers import AutoTokenizer, TFAutoModelForSeq2SeqLM
 
 def translate(text: str):
-    model_name = "hcho22/opus-mt-ko-en-finetuned-kr-to-en"
+    #model_name = "hcho22/opus-mt-ko-en-finetuned-kr-to-en"
+    model_name = "../model/"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = TFAutoModelForSeq2SeqLM.from_pretrained(model_name)
 

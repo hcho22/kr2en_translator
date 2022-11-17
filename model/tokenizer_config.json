@@ -1,0 +1,13 @@
+{
+  "eos_token": "</s>",
+  "model_max_length": 512,
+  "name_or_path": "hcho22/opus-mt-ko-en-finetuned-kr-to-en",
+  "pad_token": "<pad>",
+  "separate_vocabs": false,
+  "source_lang": "kor",
+  "sp_model_kwargs": {},
+  "special_tokens_map_file": null,
+  "target_lang": "eng",
+  "tokenizer_class": "MarianTokenizer",
+  "unk_token": "<unk>"
+}

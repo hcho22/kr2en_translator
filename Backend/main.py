@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from translate import translate
 import uvicorn
+from pydantic import BaseModel
+
+class Input(BaseModel):
+    text: str
 
 app = FastAPI(
     title = "Korean 2 English Translator",
@@ -8,10 +12,10 @@ app = FastAPI(
     version = "0.1"
 )
 
-@app.get("/translate/")
-async def translator(input: str):
-    en = translate(input)
-    return {"output" : en}
+@app.post("/translate")
+def translator(input: Input):
+    en = translate(input.text)
+    return {"English Translation" : en}
 
 if __name__ == "__main__":
     uvicorn.run(app, port=8000, host='0.0.0.0')
