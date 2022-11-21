@@ -1,0 +1,32 @@
+#version: "1"
+
+services:
+  # backend service (FastAPI)
+  backend:
+    image: kr2en_backend
+    build: Backend/
+    ports:
+      - 8000:8000
+    networks:
+      - project_networks
+    container_name: kr2en_backend
+    volumes:
+      - ./Backend:/app/Backend
+
+  # Frontend service (Streamlit UI)
+  frontend:
+    image: kr2en_frontend
+    build: Frontend/
+    depends_on:
+      - backend
+    ports:
+      - 8501:8501
+    networks:
+      - project_networks
+    container_name: kr2en_frontend
+    volumes:
+    - ./Frontend:/app/Frontend
+
+networks:
+  project_networks:
+    driver: bridge
